@@ -10,10 +10,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   bool Personal =true, College=false, Office=false;
+  bool suggest =false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+
+        },
+        backgroundColor: Colors.greenAccent.shade400,
+        child: Icon(Icons.add, color: Colors.white,size: 35,),
+      ),
       body: Container(
         padding: EdgeInsets.only(top: 70, left: 20),
         height: MediaQuery.of(context).size.height,
@@ -150,7 +158,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
               ],
-            )
+            ),
+
+            SizedBox(height: 20,),
+
+            CheckboxListTile(
+              activeColor: Colors.greenAccent.shade400,
+              title: Text("Make Youtube videos"),
+              value: suggest, onChanged: (newValue){
+              setState(() {
+                suggest = newValue!;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+            ),
+            CheckboxListTile(
+              activeColor: Colors.greenAccent.shade400,
+              title: Text("Go to Gym"),
+              value: suggest, onChanged: (newValue){
+              setState(() {
+                suggest = newValue!;
+              });
+            },
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
           ],
         ),
       ),
